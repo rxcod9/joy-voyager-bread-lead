@@ -1,9 +1,9 @@
 <?php
 
-namespace Joy\VoyagerBreadReplaceKeyword\Database\Seeders;
+namespace Joy\VoyagerBreadLead\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Joy\VoyagerBreadReplaceKeyword\Models\ReplaceKeyword;
+use Joy\VoyagerBreadLead\Models\Lead;
 use TCG\Voyager\Models\DataType;
 use TCG\Voyager\Models\MenuItem;
 use TCG\Voyager\Models\Translation;
@@ -18,7 +18,7 @@ class TranslationsTableSeeder extends Seeder
     public function run()
     {
         $this->dataTypesTranslations();
-        $this->replaceKeywordsTranslations();
+        $this->leadsTranslations();
         $this->menusTranslations();
     }
 
@@ -27,19 +27,19 @@ class TranslationsTableSeeder extends Seeder
      *
      * @return void
      */
-    private function replaceKeywordsTranslations()
+    private function leadsTranslations()
     {
-        // Adding translations for 'replace_keywords'
+        // Adding translations for 'leads'
         //
-        $cat = ReplaceKeyword::where('name', 'replace-keyword-1')->first();
+        $cat = Lead::where('name', 'lead-1')->first();
         if ($cat->exists) {
-            $this->trans('pt', $this->arr(['replace_keywords', 'name'], $cat->id), 'replace-keyword-1');
-            $this->trans('pt', $this->arr(['replace_keywords', 'description'], $cat->id), 'ReplaceKeyword 1');
+            $this->trans('pt', $this->arr(['leads', 'name'], $cat->id), 'lead-1');
+            $this->trans('pt', $this->arr(['leads', 'description'], $cat->id), 'Lead 1');
         }
-        $cat = ReplaceKeyword::where('name', 'replace-keyword-2')->first();
+        $cat = Lead::where('name', 'lead-2')->first();
         if ($cat->exists) {
-            $this->trans('pt', $this->arr(['replace_keywords', 'name'], $cat->id), 'replace-keyword-2');
-            $this->trans('pt', $this->arr(['replace_keywords', 'description'], $cat->id), 'ReplaceKeyword 2');
+            $this->trans('pt', $this->arr(['leads', 'name'], $cat->id), 'lead-2');
+            $this->trans('pt', $this->arr(['leads', 'description'], $cat->id), 'Lead 2');
         }
     }
 
@@ -55,18 +55,18 @@ class TranslationsTableSeeder extends Seeder
         $_fld = 'display_name_singular';
         $_tpl = ['data_types', $_fld];
         
-        $dtp = DataType::where($_fld, __('joy-voyager-bread-replace-keyword::seeders.data_types.category.singular'))->firstOrFail();
+        $dtp = DataType::where($_fld, __('joy-voyager-bread-lead::seeders.data_types.category.singular'))->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'ReplaceKeyword');
+            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Lead');
         }
 
         // Adding translations for 'display_name_plural'
         //
         $_fld = 'display_name_plural';
         $_tpl = ['data_types', $_fld];
-        $dtp = DataType::where($_fld, __('joy-voyager-bread-replace-keyword::seeders.data_types.category.plural'))->firstOrFail();
+        $dtp = DataType::where($_fld, __('joy-voyager-bread-lead::seeders.data_types.category.plural'))->firstOrFail();
         if ($dtp->exists) {
-            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'ReplaceKeywords');
+            $this->trans('pt', $this->arr($_tpl, $dtp->id), 'Leads');
         }
     }
 
@@ -78,9 +78,9 @@ class TranslationsTableSeeder extends Seeder
     private function menusTranslations()
     {
         $_tpl = ['menu_items', 'title'];
-        $_item = $this->findMenuItem(__('joy-voyager-bread-replace-keyword::seeders.menu_items.replace_keywords'));
+        $_item = $this->findMenuItem(__('joy-voyager-bread-lead::seeders.menu_items.leads'));
         if ($_item->exists) {
-            $this->trans('pt', $this->arr($_tpl, $_item->id), 'ReplaceKeywords');
+            $this->trans('pt', $this->arr($_tpl, $_item->id), 'Leads');
         }
     }
 
