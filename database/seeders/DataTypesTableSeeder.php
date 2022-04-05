@@ -18,7 +18,7 @@ class DataTypesTableSeeder extends Seeder
                 'name'                  => 'leads',
                 'display_name_singular' => __('joy-voyager-bread-lead::seeders.data_types.lead.singular'),
                 'display_name_plural'   => __('joy-voyager-bread-lead::seeders.data_types.lead.plural'),
-                'icon'                  => 'voyager-bread',
+                'icon'                  => 'voyager-bread voyager-bread-lead voyager-lightbulb',
                 'model_name'            => 'Joy\\VoyagerBreadLead\\Models\\Lead',
                 // 'policy_name'           => 'Joy\\VoyagerBreadLead\\Policies\\LeadPolicy',
                 // 'controller'            => 'Joy\\VoyagerBreadLead\\Http\\Controllers\\VoyagerBreadLeadController',
